@@ -19,7 +19,7 @@ cursor = conn.execute('UPDATE user SET username="Jack" WHERE username="Leo"')
 # 更新資料做法 Jack 取代 Leo
 '''
 
-cursor.excute('DELETE FROM user WHERE username="Jack"')
+cursor.execute('DELETE FROM user WHERE username="Jack"')
 # 刪除資料做法
 
 '''
