@@ -12,10 +12,15 @@ cursor.execute(sqlstr)   # 執行
 '''
 cursor = conn.execute('SELECT * FROM user')  # 執行宣告多個變數
 '''
+'''
 rows = cursor.fetchall()    # 執行一個 function 較 fetchall
 
 cursor = conn.execute('UPDATE user SET username="Jack" WHERE username="Leo"')
 # 更新資料做法 Jack 取代 Leo
+'''
+
+cursor.excute('DELETE FROM user WHERE username="Jack"')
+# 刪除資料做法
 
 '''
 print(rows)
