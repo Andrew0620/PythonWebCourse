@@ -10,7 +10,7 @@ button.addEventListener('click', function() {
         var htmlStr = '';
         console.log(data);
         data.forEach(function(value, index) {
-            htmlStr += '<div>name:' + value['Name'] + '</div>'
+            htmlStr += '<div>name:' + value['Name']　+ value['Variety'] + '<img src="' + value['ImageName'] + '"/> </div>'
         });
         result.innerHTML = htmlStr;
     }
