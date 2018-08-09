@@ -3,5 +3,5 @@
 var button = document.getElementById('abbutton');
 
 butotn.addEventListener('click', function(){
-    alert('click me!!!')
+    alert('click me!!!');
 });      // 點擊時, 會出現 click me!!!//
