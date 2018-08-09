@@ -2,7 +2,7 @@ import os
 
 filename = 'hello_word.txt'
 
-if os.path.exists(filename)
+if os.path.exists(filename):
     os.remove(filename)  #如果有 hello_world.txt 這個資料, 就移進去
 
 else:
