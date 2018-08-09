@@ -3,15 +3,6 @@
     attr: value
 } 想要改變的外觀 */
 
-
 h1{
     color: red
 }
-
-.title{
-    color: green
-}    /* .title 可以選到所有 title 的元素 .對應 classname*/
-
-#abbutton{
-    color: red
-}    /* # 對應 id name */
