@@ -7,4 +7,4 @@ def hello():
     return 'hello world!!'
 
 if __name__ == '__main__':
-    app.run(port=9000)
+    app.run(port=9000)   #TCP/UDP 阜列表, port 對應不同通訊協定的服務
