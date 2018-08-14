@@ -7,7 +7,7 @@ def hello():
     return 'hello world!!'
 
 @app.route('/')   #當妳進到首頁會做什麼事
-    def index():
+def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
