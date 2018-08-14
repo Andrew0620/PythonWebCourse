@@ -8,7 +8,8 @@ def hello():
 
 @app.route('/')   #當妳進到首頁會做什麼事
 def index():
-    return render_template('index1.html')
+    title = '這是首頁'
+    return render_template('index1.html', title=title)
 
 if __name__ == '__main__':
     app.run(port=9000)   #TCP/UDP 阜列表, port 對應不同通訊協定的服務
