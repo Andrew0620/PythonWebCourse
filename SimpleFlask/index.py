@@ -1,4 +1,5 @@
-from flask import Flask, render_template    #Flask 的類別主要是接收套件或模組的名稱當作參數
+from flask import Flask  #Flask 的類別主要是接收套件或模組的名稱當作參數
+from flask import render_template
 app = Flask(__name__)     #如果程式自己執行的話, name=__name__, 如果不是,則傳進套件或模組的名稱
 # 希望讓 Flask 的程式知道說, 怎麼把你的模板 template 和 static 靜態檔案目錄的一個相對位子
 
