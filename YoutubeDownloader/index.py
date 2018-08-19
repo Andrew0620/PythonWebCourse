@@ -6,12 +6,14 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     filename = request.args.get('filename')
+    print(filename)
     return render_template('index.html', filename=filename)
 
 @app.route('/submit', methods=['POST'])
 def post_submit():
     yt = YouTube()
     url = request.form.get('url')
+    YouTube(url).streams.first().download()
     yt.url = url
     video = yt.get('mp4', '360p')
     video.download('./')
