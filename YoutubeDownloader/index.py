@@ -20,7 +20,7 @@ def post_submit():
     filename = yt.filename
     print(yt)
     print(yt.filname)
-    return redirect(url_for('index', filename=filename)) #回跳到首頁
+    return redirect(url_for('index')) #回跳到首頁
 
 if __name__ == '__main__':
     app.run(debug=True)
