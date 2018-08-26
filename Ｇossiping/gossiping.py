@@ -16,7 +16,7 @@ headers={
 	'user-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
 }
 
-rs = requests.Session
+rs = requests.Session()
 
 rs.post('https://www.ptt.cc/ask/over18', data=payload, headers=headers)
 res = rs.get('https://www.ptt.cc/bbs/Gossiping/index.html', headers=headers)
