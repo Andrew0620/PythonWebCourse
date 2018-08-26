@@ -1,3 +1,5 @@
+## 下載 PPT 表特版的網路圖片到資料夾
+
 import requests
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
