@@ -19,8 +19,12 @@ def get_stock_data(date, stock_no):
     '''
     url = 'http://www.twse.com.tw/exchangeReport/BWIBBU?response=json&date={}&stockNo={}&_=1500590822750'.format(date, stock_no)
 
-    res = requests.get(url, headers=headers)
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+    }
 
+    res = requests.get(url, headers=headers)
+    #print(res.text)
     raw_data = json.loads(res.text)
 
     fields = raw_data['fields']
@@ -36,7 +40,8 @@ def get_stock_data(date, stock_no):
             fields[5]: value[5]
         })
 
-get_stock_data('20170721', '2330')
+
+get_stock_data('20170721', '2317')
 print(data_list)
 
 keys = data_list[0].keys()
@@ -44,3 +49,4 @@ with open('stock.csv', 'w') as output_file:
     dict_writer = csv.DictWriter(output_file, keys)
     dict_writer.writeheader()
     dict_writer.writerows(data_list)
+
