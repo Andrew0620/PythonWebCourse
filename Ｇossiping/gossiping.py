@@ -27,5 +27,13 @@ print(res.text)
 soup = BeautifulSoup(res.text, 'html.parser')
 
 items = soup.select('.r-ent')  # 去擷取剖析出來的內容; 選擇器用 .r-ent ; ID 用 #
+# print(items)
 
-print(items)
+for item in items  # 進一步作擷取的動作
+	# print('日期 {}'.format(item.select('.dtaa')[0].text))     # {} 會對到 format 裡面的內容
+	print(item.select('.data')[0].text, item.select('.author')[0].text, item.select('title')[0].text)
+
+'''
+	Homework: 建立可以爬取多篇表特版文章的網路圖片下載器
+		進階: 計算八卦版文章作者發文的數量和標題長度
+'''
