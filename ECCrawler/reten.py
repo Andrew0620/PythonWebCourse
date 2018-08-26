@@ -9,6 +9,12 @@ headers = {
 	'user-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
 }
 
-res.get(url, headers=headers)
-
+res = requests.get(url, headers=headers)
 print(res.text)
+'''
+soup = BeautifulSoup(res.text, 'html.parser')
+
+result = soup.select('.search_form s_list')
+
+print(result)
+'''
