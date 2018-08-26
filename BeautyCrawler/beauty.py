@@ -12,6 +12,6 @@ print(res.text)  # 剖析網頁內容
 '''
 soup = BeautifulSoup(res.text, 'html.parser')  # html.parser 使用的剖析器
 
-images = soup.select('a[herf^=http://imgur]')   # ^= 意思是 "開頭="
+images = soup.select('a[href^=https://imgur]')   # ^= 意思是 "開頭="
 
 print(images)
