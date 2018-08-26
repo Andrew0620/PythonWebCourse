@@ -50,3 +50,6 @@ with open('stock.csv', 'w') as output_file:
     dict_writer.writeheader()
     dict_writer.writerows(data_list)
 
+'''
+    Homework: 根據你的選股策略和指標建立爬取工具
+'''
