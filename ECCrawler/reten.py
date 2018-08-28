@@ -38,8 +38,23 @@ result = soup.select('.content')[0]
 
 items = result.select('.prod_img_wrap')
 
+data = []
+
 for item in items:
 	print(item.select('.prod_info')[0].text)
 	print(item.select('.prod_name')[0]['href'])
 	print(item.select('.price')[0].text)
+
+	data.append({
+		'Name': item.select('.prod_info')[0].text,
+		'Link': item.select('.prod_name')[0]['href'],
+		'Price': item.select('.price')[0].text
+	})
+
+	with open('./ruten.txt', 'w') as f:   # 寫進文件裡面
+		f.write(str(data))
+
+'''
+	Homework: 建立自己的露天(網拍)商品爬取工具
+'''
 
