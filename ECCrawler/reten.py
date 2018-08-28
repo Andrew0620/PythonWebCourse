@@ -30,6 +30,16 @@ print(result)
 # 這邊我們使用 selenium 和 PhantomJS
 browser = webdriver.PhantomJS(executable_path='./phantomjs.exe')  # phantomjs 若沒放在同一資料夾, 需指定路徑去執行
 browser.get(url)
+#print(browser.page_source)
 
-print(browser.page_source)
+soup = BeautifulSoup(browser.page_source, 'html.parser')
+
+result = soup.select('.content')[0]
+
+items = result.select('.prod_img_wrap')
+
+for item in items:
+	print(item.select('.prod_info')[0].text)
+	print(item.select('.prod_name')[0]['href'])
+	print(item.select('.price')[0].text)
 
