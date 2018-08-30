@@ -1,6 +1,6 @@
 import pandas as pd
 
-res = pd.read_csv('./lvr_landAcsv/A_LVR_LAND_A.CSV', encoding='big5')
+res = pd.read_csv('./lvr_landAcsv_201703/A_LVR_LAND_C.CSV')
 
 print(res.describe())
-print(res.mead())
+print(res.mean())
