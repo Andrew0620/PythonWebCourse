@@ -7,9 +7,9 @@
 </head>
 <body>
     <div class="container">
-        <hi>How Old Are You?</hi>
-        <from>
-            <input type="file" name="file">
+        <h1>How Old Are You?</h1>
+        <from action="/upload" enctype="multipart/form-data" method="POST"> <!-- enctype 編碼傳輸 -->
+            <input type="file" name="img">
             <hr>
             <buttom class="btn btn-primary">上傳圖片</buttom>
         </from>
