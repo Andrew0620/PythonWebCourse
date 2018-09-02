@@ -15,7 +15,7 @@ def upload():
 
         cascPath = 'haarcascade_frontalface_default.xml'
 
-        faceCascade =cv2.CascadeClassifier(cascPath)  # 把特徵值吃進來
+        faceCascade = cv2.CascadeClassifier(cascPath)  # 把特徵值吃進來
 
         image = cv2.imread(file.filename)   # 把 img 吃進來, imr=read image
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  # 把圖片從 BGR 轉成 gray
