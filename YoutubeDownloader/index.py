@@ -13,15 +13,15 @@ def index():
 def post_submit():
     #yt = YouTube()
     url = request.form.get('url')
-    default_filename = YouTube(url).streams.first().default_filename
-    #YouTube(url).streams.first().download()
+    YouTube(url).streams.first().download()
+    default_filename = YouTube(url).streams.first().default_filename # 把當做參數在下載成功時帶過去
     #yt.url = url
     #video = yt.get('mp4', '360p')
     #video.download('./')
     #filename = yt.filename
     #print(yt)
     #print(yt.filname)
-    return redirect(url_for('index', filename=default_filename)) #回跳到首頁, 把當做參數在上傳成功時帶過去
+    return redirect(url_for('index', filename=default_filename)) #回跳到首頁,
 
 
 
