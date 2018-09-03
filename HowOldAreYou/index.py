@@ -6,6 +6,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
+
 @app.route('/upload', methods=['POST'])  # 處理網址列的部分
 def upload():
     if request.method == 'POST':
