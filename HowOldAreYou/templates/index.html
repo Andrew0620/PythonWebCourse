@@ -14,6 +14,9 @@
             <button class="btn btn-primary" type="submit">上傳圖片</button>
         </form>
         <hr>
+        {% if result %}         <!-- 做判斷, 有 result 的話, 再做處理 -->
+            <img src="/static/images/{{ filename }}">
+        {% endif %}
     </div>
 </body>
 </html>
