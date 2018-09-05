@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     filename = request.args.get('filename')
     result = request.args.get('result')
-    return render_template('index.html', filename = filename, result = result)
+    return render_template('index.html', filename=filename, result=result)
 
 @app.route('/upload', methods=['POST'])  # 處理網址列的部分
 def upload():
@@ -55,7 +55,7 @@ def upload():
         return redirect(url_for('index', filename=newImage, result=len(faces)))
         # 重新定向到 index 的地方, 帶出檔名, result 看是否辨識出人臉: 0 代表 fail
 
-        return render_template('index.html')
+        #return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()
