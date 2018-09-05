@@ -1,5 +1,6 @@
 import cv2
 from flask import Flask, render_template, request
+import random
 
 app = Flask(__name__)
 
@@ -23,10 +24,10 @@ def upload():
 
         faces=faceCascade.detectMultiScale(
             gray,
-            scaleFactor=1.2,
-            minNeighbors=5,
-            minSize=(30, 30),
-            flags=cv2.CASCADE_SCALE_IMAGE
+            scaleFactor = 1.2,
+            minNeighbors = 5,
+            minSize = (30, 30),
+            flags = cv2.CASCADE_SCALE_IMAGE
         )
         # faceCascade.detectMultiScale 辨識人臉的方法;
         # scaleFactor=1 依據不同大小去對圖片進行掃描特徵比對, 所謂的膨脹係數膨脹係數越大越精確
@@ -35,11 +36,15 @@ def upload():
         # flags 檢測的模式, 使用的是 cv2 裡面的預設, 使用 cv2.CASCADE_SCALE_IMAGE 去辨識
 
         for (x, y, w, h) in faces:
-            cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
-            cv2.imwrite('./static/images' + file.filename, image)  # cv2.imwrite 保存图像
+            age = random.randint(18, 30)  # 年齡設定範圍
+            cv2.rectangle(image, (x + 3, y - 15), (x + 50, y - 50), (200, 187, -1), -1) # 放年齡文字的地方
+            cv2.putText(image, str(age), (x + 5, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0, 187), 2)
+            # 塞進年齡, cv2.FONT_HERSHEY_SIMPLEX 字體形式
+            cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+            cv2.imwrite('./static/images/' + file.filename, image)  # cv2.imwrite 保存图像
         # 用 for loop 把人臉辨識範圍用矩形表示出來
         # cv2.rectangle: img是原图, （x，y）是矩阵的左上点坐标, (x+w，y+h）是矩阵的右下点坐标,
-        # （0,255,0）是画线对应的 rgb 颜色, 2 是所画的线的宽度
+        # （0,255,0）是画线对应的 rgb 颜色, 2 是所画的线的宽度(-1表實心)
         #  cv2.imwrite: 第一个参数是文件名，第二个参数是你要保存的图片，
         # 第三个参数针对特定的格式： 对于JPEG，其表示的是图像的质量，用0-100的整数表示，默认为95
 
