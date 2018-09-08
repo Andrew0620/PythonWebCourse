@@ -30,8 +30,7 @@ JavaScript, CSS, HTML 這些內容, 這樣的話, 事實上我們要把這些 te
 打造首頁模板借重 bootstrap, 是一個 CSS 的 framework, 提供了許多寫好 CSS 的 component, 可快速套用 CSS 的 class
 到 index.html 打造首頁, 完成首頁和註冊內容 (signup.html) 的部分
 https://getbootstrap.com/
-https://getbootstrap.com/docs/3.3/examples/jumbotron/
-
+https://getbootstrap.com/docs/3.3/getting-started/
 '''
 def get_index(request):
     title = 'opencook'
