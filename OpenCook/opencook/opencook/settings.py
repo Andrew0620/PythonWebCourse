@@ -54,7 +54,8 @@ ROOT_URLCONF = 'opencook.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates').replace('\\','/')],
+        # DIR, default setting [], 指資料夾的位子是什麼, 意思是把 templates 檔案位子抓出來, 用絕對位子去做處理, 轉成 replace('\\','/')
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
