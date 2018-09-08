@@ -21,6 +21,8 @@ JavaScript, CSS, HTML 這些內容, 這樣的話, 事實上我們要把這些 te
 '''
 def get_index(request):             # 打造首頁, 到 opencook/settings 設計 template 位子, 需更改 settings 的部分
     return render(request, 'index.html', {'title': 'open cook rock'})       # 使用 render 去整合 templates.  {} 傳參數
+    # 這樣可以動態的去產生我們的內容
+    # 動態網站蠻重要的一個觀念就是說, 由 server side 程式去產生你的內容, 把它塞到 templates 模板裡面去
 
 
 
