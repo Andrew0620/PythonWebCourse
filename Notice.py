@@ -37,7 +37,7 @@
 # 查看當前項目的結構
 # tab批量換space：Edit  ->  Convert Indents
 
-# TODO的使用： # Todo要記錄的事情
+# TODO的使用： #TODO要記錄的事情
 # Debug設置斷點，直接點擊行號與代碼之間的空白處即可設置斷點
 # Tab頁上右鍵 -> Move
 # Right（Down），把當前Tab頁移到窗口右邊（下邊），方便對比
