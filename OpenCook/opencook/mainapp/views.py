@@ -1,7 +1,7 @@
 # view 為商業邏輯撰寫的一個部分
 
 from django.shortcuts import render
-form django.http import HttpResponse
+from django.http import HttpResponse
 
 # Create your views here.
 
