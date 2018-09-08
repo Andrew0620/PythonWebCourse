@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from mainapp.views import get_index
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^', get_index)   # 進到首頁讓 get_index 去處理
 ]
