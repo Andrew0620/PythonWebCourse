@@ -1,5 +1,15 @@
 # 當從 GitHub 刪除資料後，記的要 Pull 回 Local，不然會造成 push rejected
 
+# 創建虛擬環境: windows 和 MAC 不同
+# 1. conda 指令, 會說明這些指令能做什麼
+# 2. conda create -n XXX_venv(虛擬環境的名稱) python=3.6(指定 python 版本, 根據自己 pyhton 版本去定義)
+# 3. conda info -e  檢視虛擬開發環境
+# 4. activate XXX_venv(虛擬環境的名稱) 進入虛擬開發環境
+# 5. deactivate XXX_venv(虛擬環境的名稱) 離開虛擬開發環境
+
+# django-admin.exe startproject XXX(檔案名稱)        建立 django 的專案
+# python manage.py runserver     啟動開發 server
+# ----------------------------------------------------------------------------------------------------------
 # 5.
 # 常用快捷鍵，例如復制當前行、刪除當前行、批量注釋、縮進、查找和替換。
 # 常用快捷鍵的查詢和配置：Keymap
