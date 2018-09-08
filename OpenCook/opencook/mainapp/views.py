@@ -40,4 +40,13 @@ def get_signup(request):
     return render(request, 'signup.html')
 
 
-
+'''
+單元 26 資料庫的一些 schema 建置
+資料庫為一種長期儲存資料的方法, 和一般在寫程式宣告變數去暫時性儲存資料是不一樣的
+資料庫分為 RBD(關聯式資料庫), NoSQL .....
+本單元要講的是 SQLite, 關聯式資料庫最重要的一個特色是 table 和 table 之間的一些關聯
+使用 Django Model 優點: 
+1. 透過資料庫轉換相當方便, 透過 setting.py 去 setting 資料庫到我們要對應哪一種的資料庫,
+可方便的去移轉我們的料庫
+2. ENGINE 使用的資料庫引擎, 可以設定 MySQL, SQLite 或是 pgSQL
+'''

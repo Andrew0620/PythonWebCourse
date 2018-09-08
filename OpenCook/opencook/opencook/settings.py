@@ -73,11 +73,11 @@ WSGI_APPLICATION = 'opencook.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
+# 設定資料庫 SQLite 3
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # os.path.join(BASE_DIR, 使用系統目前所在的資料夾
     }
 }
 
