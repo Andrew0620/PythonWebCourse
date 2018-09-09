@@ -49,4 +49,23 @@ def get_signup(request):
 1. 透過資料庫轉換相當方便, 透過 setting.py 去 setting 資料庫到我們要對應哪一種的資料庫,
 可方便的去移轉我們的料庫
 2. ENGINE 使用的資料庫引擎, 可以設定 MySQL, SQLite 或是 pgSQL
+------------------------------------------------------
+Python Django ORM 入門
+** 物件關聯對映 (ORM = Object Relation Mapping) 是一種程式設計技術, 用於實現物件導向編程語言裡不同類型系統的資料之間的轉換
+** ORM 可以讓你使用物件方式而非 SQL 的方式操作資料庫, 但複雜的情況還是得需要用到 SQL 語法
+**操作資料庫一般基本操作 CRUD, create, read, update, delete 的操作
+SQL vs ORM
+-create
+． INSERT INTO Recipe ("title") VALUES ("玉米濃湯") ----- SQL
+． Recipe.objects.create(title='玉米濃湯')          ----- ORM
+QuerySet API (ORM 方式操作)
+1. create: Recipe.objects.create(title='玉米濃湯')
+2. read: Recipe.objects.all()/Recipe.objects.get()/Recipe.objects.filter()
+3. update: Recipe.objects.filter(title='玉米濃湯').update(title='soup')/Recipe.update(title='soup')
+4. delete: Recipe.objects.filter().delete()/Recipe.delete()
+'''
+
+'''
+Homework 單元26:
+        建立 OpenCook 的 recipe model 
 '''
