@@ -36,11 +36,9 @@ https://getbootstrap.com/docs/3.3/getting-started/
 '''
 
 def get_index(request):
-    title = 'opencook'
+    title = 'OpenCook'
     recipes = Recipe.objects.all()  # 把 recipe 資料引入
-    for recipe in recipes:
-        print(recipe.title)
-    return render(request, 'index.html', {'title': title})
+    return render(request, 'index.html', locals())   # 用 local 的參數可以把 title, recipe 資料傳過去
 
 def get_signup(request):
     return render(request, 'signup.html')

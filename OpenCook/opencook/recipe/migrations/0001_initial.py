@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=100)),
                 ('image_path', models.CharField(max_length=100)),
                 ('description', models.TextField()),
-                ('crated_at', models.DateTimeField(default=django.utils.timezone.now)),
+                ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
     ]

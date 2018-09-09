@@ -54,17 +54,22 @@
         重複 HTML 片段 (for loop): 列出所有食譜名稱和顯示圖片
         格式化 Template 中的變數: 日期地格式化 -->
       <div class="row">
+        <!-- 把 recipe 在這個地方把它 iterate 出來, 就是把它 for loop 出來 -->
+        {% for recipe in recipes %}    <!--單{:程式邏輯撰寫; 雙{{: 變數 -->
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h4>{{ recipe.title }}</h4>
+          <a href="#" class="thumbnail">
+            <img src="{{ recipe.image_path }}" alt="">
+          </a>
+          <p>{{ recipe.created_at | date:"Y / m / d" }}</p>
         </div>
+        {% endfor %}
       </div>
 
       <hr>
 
       <footer>
-        <p>&copy; 2018 CHIN HSING.</p>
+        <p>&copy; 2018 OpenCook Inc.</p>
       </footer>
     </div> <!-- /container -->
 </body>
