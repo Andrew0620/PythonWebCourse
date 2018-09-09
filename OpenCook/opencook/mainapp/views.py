@@ -1,6 +1,8 @@
 # view 為商業邏輯撰寫的一個部分
 
 from django.shortcuts import render
+from recipe.models import Recipe
+
 #from django.http import HttpResponse
 
 # Create your views here.
@@ -32,13 +34,16 @@ JavaScript, CSS, HTML 這些內容, 這樣的話, 事實上我們要把這些 te
 https://getbootstrap.com/
 https://getbootstrap.com/docs/3.3/getting-started/
 '''
+
 def get_index(request):
     title = 'opencook'
+    recipes = Recipe.objects.all()  # 把 recipe 資料引入
+    for recipe in recipes:
+        print(recipe.title)
     return render(request, 'index.html', {'title': title})
 
 def get_signup(request):
     return render(request, 'signup.html')
-
 
 '''
 單元 26 資料庫的一些 schema 建置
@@ -69,3 +74,5 @@ QuerySet API (ORM 方式操作)
 Homework 單元26:
         建立 OpenCook 的 recipe model 
 '''
+
+
