@@ -10,7 +10,7 @@ class Recipe(models.Model):   # 宣告類別
     title = models.CharField(max_length=100)         # 資料型態: CharField (食譜標題)
     image_path = models.CharField(max_length=100)    # 資料型態: CharField (照片網址)
     description = models.TextField()                  # 資料型態: TextField (食譜描述)
-    created_at = models.DateTimeField(default=timezone.now)      # 資料型態: DateTimeField (創建時間)
+    crated_at = models.DateTimeField(default=timezone.now)      # 資料型態: DateTimeField (創建時間)
 
 '''
 使用 django model 指令去建造我們的 model 去產生出來

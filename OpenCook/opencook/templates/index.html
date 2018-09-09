@@ -61,7 +61,7 @@
           <a href="#" class="thumbnail">
             <img src="{{ recipe.image_path }}" alt="">
           </a>
-          <p>{{ recipe.created_at | date:"Y / m / d" }}</p>
+          <p>{{ recipe.crated_at | date:"Y / m / d" }}</p>  <!--之前拼字錯誤, 改回正確拼法會出問題, 待解 -->
         </div>
         {% endfor %}
       </div>
