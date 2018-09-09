@@ -19,6 +19,13 @@
           </button>
           <a class="navbar-brand" href="#">{{ title }}</a>   <!-- 動態產生 Project name  -->
         </div>
+        {% if user.is_authenticated %}
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Hi, {{ user.username }}</a></li>
+            <li class="active"><a href="/recipes/create">分享食譜</a></li>
+            <li class="active"><a href="logout/post">登出</a></li>
+        </ul>
+        {% else %}
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
             <div class="form-group">
@@ -32,6 +39,7 @@
               <!-- <a href=""> 給定超連結-->
           </form>
         </div><!--/.navbar-collapse -->
+        {% endif %}
       </div>
     </nav>
 
