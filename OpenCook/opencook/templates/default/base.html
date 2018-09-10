@@ -1,0 +1,18 @@
+<!-- 單元 29 Django Template 和靜態資源
+引入更進階 模板重用的概念 -->
+{% load staticfiles %}  <!-- 載入靜態資源 -->
+
+<!-- 基礎模板 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenCook</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    {% include 'default/navbar.html' %}
+    {% block content %}{% endblock %}
+    {% include 'default/footer.html' %}
+</body>
+</html>
