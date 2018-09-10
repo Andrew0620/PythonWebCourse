@@ -122,3 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# 單元29 放資料夾的地方
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')   # 指定 static 這個資料夾可以吃我們放置靜態檔案的位子
+]

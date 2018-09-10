@@ -1,0 +1,7 @@
+/* 單元 29 Django Template 和靜態資源
+建置一個放置靜態檔案的地方 */
+
+.main-container{
+    margin-top: 70px;
+}
+/* .main-container 的.是表 class 的意思 */
