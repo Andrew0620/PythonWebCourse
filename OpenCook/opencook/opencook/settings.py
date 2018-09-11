@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     'mainapp',
     'recipe',
-]
+]     # 單元30 要安裝 session, 去做 python 的 migration, 不過在之前系統已經預設安裝, 在過去 migration 的時候. 事實上已經 migrate 過了, 也就是說資料庫可以存取到 session 的資料
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+]   # 單元30 要安裝 session, 去做 python 的 migration, 不過在之前系統已經預設安裝, 在過去 migration 的時候. 事實上已經 migrate 過了, 也就是說資料庫可以存取到 session 的資料
 
 ROOT_URLCONF = 'opencook.urls'
 

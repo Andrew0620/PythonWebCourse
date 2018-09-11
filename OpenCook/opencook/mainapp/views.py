@@ -2,10 +2,9 @@
 
 from django.shortcuts import render
 from recipe.models import Recipe
+from datetime import datetime, timedelta
 
 #from django.http import HttpResponse
-
-# Create your views here.
 
 '''
 def get_index(request, a, b):
@@ -35,12 +34,23 @@ https://getbootstrap.com/
 https://getbootstrap.com/docs/3.3/getting-started/
 '''
 
+# Create your views here.
+
 def get_index(request):
     title = 'OpenCook'
     recipes = Recipe.objects.all()  # 把 recipe 資料引入
-    return render(request, 'index.html', locals())   # 用 local 的參數可以把 title, recipe 資料傳過去
+    # return render(request, 'index.html', locals())   # 用 local 的參數可以把 title, recipe 資料傳過去
+    request.session['age'] = 25
+    response = render(request, 'index.html', locals())
+    # 單元30 要注意需在 http response 之後, 才能做 cookie 的設置, render 會產生一個 response 的物件
+    #response.set_cookie(key='name', value='hahahahaaa', expires=datetime.now() + timedelta(days=30))
+    return response
+'''
+單元30 在這個單元我們認識了 http 的通訊協定, 事實上他是沒有存狀態的, 也就是不認人的, 如果希望能夠儲存一些共享頁面的一些資訊的話, 要透過存在 client side 的 cookie, 以及已經存在 server side 的 session, 就可以達到會員登和註冊的一些相關機制
+'''
 
 def get_signup(request):
+    print(request.session['age'])
     return render(request, 'signup.html')
 
 '''
