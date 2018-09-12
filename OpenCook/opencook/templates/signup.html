@@ -3,13 +3,15 @@
 <div class="container main-container">
   <!-- Example row of columns 自己做一個表單-->
   <h1>註冊帳號</h1>
-    <form>
+    <form method="POST" action="/signup/post">
         <label>請輸 使用者名稱</label>
-        <input class="form-control" type="", name="">
+        <input class="form-control" type="text" name="username">
         <label>請輸入使用者 Email</label>
-        <input class="form-control" type="", name="">
+        <input class="form-control" type="text" name="email">
         <label>請輸入密碼</label>
-        <input class="form-control" type="", name="">
+        <input class="form-control" type="password" name="password">
+        <hr>
+        {% csrf_token %}   <!-- 這樣 server side 會產稱一個 render 的 token 去辨別使用者是否為惡意使用者 -->
         <button class="btn btn-primary btn-block">提交送出</button>
     </form>
 </div> <!-- /container -->

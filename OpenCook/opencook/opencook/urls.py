@@ -23,11 +23,14 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 
-from mainapp.views import get_index, get_signup
+from mainapp.views import get_index, get_signup, post_signup, post_login, post_logout
 
 urlpatterns = [
     url(r'admin/', admin.site.urls),
-    url(r'^signup', get_signup),  # ^ 表字首對應; $ 表字尾對應
+    url(r'^signup$', get_signup),  # ^ 表字首對應; $ 表字尾對應
+    url(r'^signup/post$', post_signup),
+    url(r'^login/post$', post_logout),
+    url(r'^logout/post$', post_logout),
     url(r'^', get_index)   # 進到首頁, url 網址會交由 get_index 這個 views 去處理
 
 ]

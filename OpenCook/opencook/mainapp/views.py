@@ -1,8 +1,13 @@
 # view 為商業邏輯撰寫的一個部分
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from recipe.models import Recipe
 from datetime import datetime, timedelta
+
+# 這邊要引入一個 django auth 的一個方法, 引用 django 內建的一個會員管理機制
+from django.contrib.auth.models import User     # 內建管理員的 model
+from django.contrib.auth import authenticate
+from django.contrib import auth
 
 #from django.http import HttpResponse
 
@@ -40,7 +45,6 @@ def get_index(request):
     title = 'OpenCook'
     recipes = Recipe.objects.all()  # 把 recipe 資料引入
     # return render(request, 'index.html', locals())   # 用 local 的參數可以把 title, recipe 資料傳過去
-    request.session['age'] = 25
     response = render(request, 'index.html', locals())
     # 單元30 要注意需在 http response 之後, 才能做 cookie 的設置, render 會產生一個 response 的物件
     #response.set_cookie(key='name', value='hahahahaaa', expires=datetime.now() + timedelta(days=30))
@@ -50,7 +54,6 @@ def get_index(request):
 '''
 
 def get_signup(request):
-    print(request.session['age'])
     return render(request, 'signup.html')
 
 '''
@@ -83,4 +86,32 @@ Homework 單元26:
         建立 OpenCook 的 recipe model 
 '''
 
+# 單元31 Django 會員登入與註冊
+
+def post_signup(request):
+    username = request.POST['username']   # 透過 request 的 post 去取出我們的 username, 對應到的是 signup.html
+    email = request.POST['email']
+    password = request.POST['password']
+
+    user = User.objects.create_user(username, email, password)   # 註冊的東西產生一個新的會員, 把參數傳進來
+    if user:
+        return redirect('/', locals())   # nser 不是 nan, 代表註冊成功回到首頁
+    else:
+        redirect('/signup', locals())
+
+def post_logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+def post_login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+
+    user = authenticate(username=username, password=password)  # 做對應是否有這樣一個會員, 會回傳 user 的一些相關資料
+
+    if user is not None:
+        auth.login(request, user)
+        return redirect('/', locals())
+    else:
+        return redirect('/', locals())
 
