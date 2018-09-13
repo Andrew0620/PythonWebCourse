@@ -1,3 +1,5 @@
+<!-- 首頁 前端-->
+
 {% extends 'default/base.html' %} <!-- 繼承模板, 塞進 base 模板內-->
 <!-- Main jumbotron for a primary marketing message or call to action 客製化內容-->
 {% block content %}
@@ -19,16 +21,54 @@
     重複 HTML 片段 (for loop): 列出所有食譜名稱和顯示圖片
     格式化 Template 中的變數: 日期地格式化 -->
   <div class="row">
-    <!-- 把 recipe 在這個地方把它 iterate 出來, 就是把它 for loop 出來 -->
-    {% for recipe in recipes %}    <!--單{:程式邏輯撰寫; 雙{{: 變數 -->
-    <div class="col-md-4">
-      <h4>{{ recipe.title }}</h4>
-      <a href="#" class="thumbnail">
-        <img src="{{ recipe.image_path }}" alt="">
-      </a>
-      <p>{{ recipe.crated_at | date:"Y / m / d" }}</p>  <!--之前拼字錯誤, 改回正確拼法會出問題, 待解 -->
+
+    <!-- 把 recipe (mainapp/views.py) 在這個地方把它 iterate 出來, 就是把它 for loop 出來, 使用 server side 的 render 方式帶出 recipe -->
+    <!--{% for recipe in recipes %}    &lt;!&ndash; 單{:程式邏輯撰寫; 雙{{: 變數 &ndash;&gt;-->
+    <!--<div class="col-md-4">-->
+      <!--<h4>{{ recipe.title }}</h4>-->
+      <!--<a href="#" class="thumbnail">-->
+        <!--<img src="{{ recipe.image_path }}" alt="">-->
+      <!--</a>-->
+      <!--<p>{{ recipe.crated_at | date:"Y / m / d" }}</p>  &lt;!&ndash;之前拼字錯誤, 改回正確拼法會出問題, 待解 &ndash;&gt;-->
+    <!--</div>-->
+    <!--{% endfor %}-->
+
+    <!-- 單元32 希望這邊透過 python django 去提供一個 API 把資料傳回來, 就可以透過 Javascript 去組織我們前端資料, 就可進行前後端資料分離, 也就是後端只提供一個 API 接口, 讓前端自己負責資料的一個建構-->
+    <!-- Restful 入門
+    REST = representational state transfer, 又稱具象狀態傳輸
+    Restful 是一種風格, 而非標準
+    對資源的操作提供一個 API 接口, 包括讀取, 新增, 修改和刪除資料(CRUD), 這些操作正好對應 HTTP 通訊協議提供的 GET, POST, PUT 和 DELETE 方法
+    風格範例
+    GET recipes 取得所有食譜列表
+    GET recipes/1 取得 id=1 的食譜資料
+    POST recipes 創建新的食譜
+    UPDATE recipes/1 更新 id=1 的食譜資料
+    DELETE recipes/1 刪除 id=1 的食譜資料
+    -->
+
+    <div id="result">
+
     </div>
-    {% endfor %}
   </div>
 </div> <!-- /container -->
+
+<script type="text/javascript">
+  var xhr = new XMLHttpRequest();
+  var onloadHandle = function()　{
+      var data = JSON.parse(JSON.parse(xhr.responseText).data);
+      var result = document.getElementById('result');
+      var strHTML = '';
+      console.log(data); <!-- console.log 會把資料用在開發者工具-->
+      data.forEach(function(value) {
+          strHTML += '<div class="col-md-4"><h4>' + value.fields.title +  '</h4><a href="#" class="thumbnail">' + '<img src="' + value.fields.image_path + '">' + '</a></div>'
+       });
+
+      result.innerHTML = strHTML;
+  };
+  xhr.open('GET', 'http://localhost:8000/api/recipes', true);
+  xhr.send();
+
+  xhr.onload = onloadHandle
+
+</script>       <!-- 前端接到 API 接口 -->
 {% endblock %}
