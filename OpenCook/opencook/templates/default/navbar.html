@@ -14,7 +14,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="#">Hi, {{ user.username }}</a></li>
       <li class="active"><a href="/recipes/create">分享食譜</a></li>
-      <form method="POST" action="/logout/post" class="navbar-form navbar-right">
+      <form class="navbar-form navbar-right" method="POST" action="/logout/post">
         <li class="active"><button class="btn btn-primary">登出</button></li>
         {% csrf_token %}
       </form>
