@@ -1,0 +1,20 @@
+  <!-- 單元33 建立使用者介面可以分享食譜-->
+
+{% extends 'default/base.html' %} <!-- extends 模板, 有持續重複使用 navigation bar-->
+{% block content %}
+<div class="container main-container">
+  <!-- Example row of columns 自己做一個表單-->
+  <h1>分享食譜</h1>
+    <form method="POST" action="/recipes/create/post">       <!-- 建立一個 views 的 function 來幫我們處理怎樣去分享食譜 -->
+        <label>請輸入食譜名稱</label>
+        <input class="form-control" type="text" placeholder="title" name="title" >
+        <label>請輸入食譜圖片</label>
+        <input class="form-control" type="text" placeholder="image_path" name="image_path"  >
+        <label>請輸入食譜描述</label>
+        <textarea class="form-control" type="text" placeholder="description" name="description" ></textarea>
+        <hr>
+        {% csrf_token %}   <!-- 這樣 server side 會產稱一個 render 的 token 去辨別使用者是否為惡意使用者 -->
+        <button class="btn btn-primary btn-block">提交送出</button>
+    </form>
+</div> <!-- /container -->
+{% endblock %}
