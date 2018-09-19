@@ -27,10 +27,16 @@ def get_recipes_api(request):
 '''
 介紹 html, css and javascript 的時候, 有使用一個 ajax 的一個方法, 可透過 ajax 的方法, 在前端使用 javascript 去呼叫 API, 那我們 return 的 json 的 data 就可以在前端進行組件我們前端的介面, 把資料榮進 html 裡面
 '''
+# 單元 34
+def get_recipe(request, recipe_id):     # 點選食譜縮圖可以進到詳細的食譜資料
+    print(recipe_id)
+    recipe = Recipe.objects.get(pk=recipe_id)
+    return render(request, 'recipe.html', locals())
 
 # 單元 33
 def get_create_recipe(request):
     return render(request, 'create_recipe.html')
+
 def post_create_recipe(request):
     if request.method == 'POST':
         form = RecipeForm(request.POST)

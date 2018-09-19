@@ -1,0 +1,17 @@
+<!-- 單元34 -->
+
+{% extends 'default/base.html' %} <!-- 繼承模板, 塞進 base 模板內-->
+{% block content %}
+<div class="container main-container">
+  <!-- Example row of columns 自己做一個表單-->
+    <ol class="breadcrumb">             <!-- 回首頁機制-->
+        <li><a href="/">Home</a></li>
+        <li class="active">{{ recipe.title }}</li>
+    </ol>
+    <div>
+        <h4>{{ recipe.title }}</h4>
+        <img src="{{ recipe.image_path }}">
+        <p>{{ recipe.description }}</p>
+    </div>
+</div> <!-- /container -->
+{% endblock %}

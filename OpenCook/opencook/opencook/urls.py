@@ -24,7 +24,7 @@ from django.contrib import admin
 from django.conf.urls import url
 
 from mainapp.views import get_index, get_signup, post_signup, post_login, post_logout
-from recipe.views import get_recipes_api, get_create_recipe, post_create_recipe  # 開一個 API 接口
+from recipe.views import get_recipes_api, get_create_recipe, post_create_recipe, get_recipe  # 開一個 API 接口
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^login/post$', post_login),
     url(r'^logout/post$', post_logout),
     url(r'^api/recipes$', get_recipes_api),   # 定義一個 API 接口, 會吐回所有的 recipes 的列表
+    url(r'^recipes/(\d+)$', get_recipe),   # \d: 正規表達式,代表整數, 1:# 代表一個以上的整數
     url(r'^recipes/create$', get_create_recipe),
     url(r'^recipes/create/post$', post_create_recipe),
     url(r'^', get_index)   # 進到首頁, url 網址會交由 get_index 這個 views 去處理
