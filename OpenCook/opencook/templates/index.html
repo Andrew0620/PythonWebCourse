@@ -4,6 +4,9 @@
 <!-- Main jumbotron for a primary marketing message or call to action 客製化內容-->
 {% block content %}
 <div class="jumbotron">
+  {% for message in messages %}
+  <div class="alert alert-success" role="alert">{{ message }}</div>　　　<!-- 訊息通知機制 -->
+  {% endfor %}
   <div class="container">
     <h1>分享料理美好時刻!</h1>
     <p>在這裡你可以分享你的食譜給愛料理的朋友們。</p>

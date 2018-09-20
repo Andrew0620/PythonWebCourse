@@ -5,6 +5,8 @@ from .models import Recipe
 from django.http import JsonResponse   # 引入 json response 的一個套件, 可以幫助我們簡化
 from django.core import serializers
 from django import forms
+from django.contrib import messages   # django 內建的訊息框架
+
 
 # Create your views here.
 
@@ -43,6 +45,8 @@ def post_create_recipe(request):
         if form.is_valid():  # 會和我們建立好的 model, 看我們裡面有沒有設一些預設的條件
              new_recipe = form.save()
              print(new_recipe)
-             return redirect('/')
+             messages.add_message(request, messages.SUCCESS, '分享成功！')
+             return redirect('/', locals())
         else:
              return redirect('/recipe/create')
+
