@@ -60,7 +60,7 @@
       var strHTML = '';
       console.log(data); <!-- console.log 會把資料用在開發者工具-->
       data.forEach(function(value) {
-          strHTML += '<div class="col-md-4"><h4>' + value.fields.title +  '</h4><a href="#" class="thumbnail">' + '<img src="' + value.fields.image_path + '">' + '</a></div>'
+          strHTML += '<div class="col-md-4"><h4>' + value.fields.title +  '</h4><a href="/recipes/' + value.pk + '" class="thumbnail">' + '<img src="' + value.fields.image_path + '">' + '</a></div>'
        });
 
       result.innerHTML = strHTML;
